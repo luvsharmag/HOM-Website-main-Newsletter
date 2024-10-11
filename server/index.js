@@ -93,7 +93,7 @@ app.post("/subscribe", async (req, res) => {
     //   html: "<b>Welcome to HOM, Thank you for subscribing, We're honoured to have you on board.</b>",
     // });
     let user = await publicUser.findOne({
-      email,
+      UserEmail:email,
     });
     if (user) {
       return next(new ErrorHandler("Email already exist", 409));
