@@ -1,0 +1,253 @@
+/* Overall container */
+.Complete-register-page .complete-register-container {
+  font-family: 'Montserrat', sans-serif;
+  justify-content: space-between;
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  background-color: #f4f7f9;
+}
+
+/* Left section (50%) */
+.Complete-register-page .left-section {
+  width: 50%;
+  flex: 1;
+  padding: 20px;
+  background-color: #ddecfe;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Align items to the top */
+  align-items: flex-start;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(96, 91, 99, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Logo Styling */
+.Complete-register-page .complete-register-logo {
+  width: 30%;
+  margin-bottom: 10px;
+}
+
+/* Heading Styling */
+.Complete-register-page .left-section h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #2c3e50;
+  font-weight: bold;
+}
+
+/* Text and list Styling */
+.Complete-register-page .left-section p {
+  font-size: 1.125rem;
+  color: #5d6d7e;
+  margin-bottom: 15px;
+}
+
+.Complete-register-page .left-section ul {
+  font-size: 1.125rem;
+  color: #5d6d7e;
+  padding-left: 1.5rem;
+  margin-bottom: 0;
+}
+
+.Complete-register-page .left-section ul li {
+  margin-bottom: 0.75rem;
+  color: #444;
+}
+
+.Complete-register-page .left-section ul li i {
+  color: #94a5bb;
+}
+
+/* SVG Image Styling - Positioned on the right */
+.Complete-register-page .complete-register-background-image {
+  position: absolute;
+  right: 0;
+  top: 60%;
+  width: 40%;
+  height: auto;
+  max-width: 70%;
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+/* Right section (adjusted size) */
+.Complete-register-page .right-section {
+  width: 40%; /* Reduced from 50% to 40% */
+  flex: 1;
+  padding: 20px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Form container */
+.Complete-register-page .right-section h2 {
+  font-size: 2rem;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.Complete-register-page form {
+  width: 100%;
+  max-width: 400px; /* Reduced max-width from 450px to 400px */
+  padding: 30px; /* Adjusted padding */
+  background-color: #ffff;
+  border-radius: 10px;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Input fields */
+.input-group input[type="email"],
+.input-group input[type="text"],
+.input-group input[type="tel"],
+.input-group input[type="password"] {
+  border: none;
+  border-bottom: 2px solid #ddd;
+  padding: 10px; /* Reduced padding */
+  font-size: 16px;
+  outline: none;
+  width: 100%;
+  margin-bottom: 20px; /* Reduced margin */
+  background-color: #f9f9f9;
+  transition: border-color 0.3s ease;
+}
+
+.input-group input[type="email"]:focus,
+.input-group input[type="text"]:focus,
+.input-group input[type="tel"]:focus,
+.input-group input[type="password"]:focus {
+  border-bottom: 2px solid black;
+}
+
+/* Continue button */
+.submit-button[type="submit"] {
+  width: 100%;
+  background-color: black;
+  color: white;
+  font-size: 16px;
+  padding: 12px; /* Adjusted padding */
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  margin-top: 15px; /* Adjusted margin */
+  transition: background-color 0.3s ease;
+}
+
+.submit-button[type="submit"]:hover {
+  background-color: rgb(47, 46, 46);
+}
+
+.Complete-register-page .phone-number-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px; /* Adjusts space between groups */
+}
+
+.Complete-register-page .phone-number-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.Complete-register-page .country-code {
+  margin-right: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.Complete-register-page .validate-btn {
+  margin-top: 10px; /* Adds space between input and button */
+  width: 100%; /* Ensure button width is 100% */
+}
+
+.Complete-register-page .input-group input[type="password"] {
+  margin-bottom: 5px; /* Adjust as needed */
+}
+
+.Complete-register-page .phone-number-group input {
+  flex: 1; /* Take up remaining space */
+  padding: 8px;
+  border: none;
+  font-size: 16px;
+  background-color: transparent;
+  color: black;
+  outline: none;
+}
+
+.Complete-register-page .phone-number-group input::placeholder {
+  color: #aaa;
+}
+
+/* Password requirements */
+.Complete-register-page .password-requirements {
+  font-size: 0.875rem;
+  color: #5d6d7e;
+  margin-bottom: 20px;
+}
+
+/* Error message */
+.Complete-register-page .error-message {
+  color: red;
+  font-size: 0.875rem;
+  margin-bottom: 20px;
+}
+
+/* Register link */
+.link-login {
+  color: #2980b9;
+  text-decoration: none;
+}
+
+.link-login:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .Complete-register-page .left-section {
+    padding: 30px;
+  }
+
+  .Complete-register-page .left-section h2 {
+    font-size: 1.625rem;
+  }
+
+  .Complete-register-page .complete-register-logo {
+    width: 80px;
+  }
+
+  .Complete-register-page .right-section {
+    padding: 30px;
+    width: 90%; /* Full width on smaller screens */
+  }
+
+  .Complete-register-page form {
+    padding: 30px;
+  }
+}
+
+/* Existing styles... */
+.Complete-register-page .password-group {
+  display: flex;
+  align-items: center;
+}
+
+.Complete-register-page .password-group input {
+  flex: 1;
+}
+
+.Complete-register-page .show-password-btn {
+  margin-left: 10px;
+}
+
+
+
+
+
+
+
+

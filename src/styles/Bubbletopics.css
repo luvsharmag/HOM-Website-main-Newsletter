@@ -1,0 +1,75 @@
+.bubble {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 60% 60%,
+    rgb(0, 0, 0),
+    rgba(0, 0, 0, 01) 80%,
+    transparent 100%
+  );
+  position: relative;
+  opacity: 01;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 1px;
+  box-shadow: 0 0 100px rgba(0, 0, 0, 0.6), 
+              inset 0 0 80px rgba(0, 0, 0, 0.8),
+              inset 0 0 40px rgba(0, 0, 0, 0.9);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.8),
+               0 0 30px rgba(255, 255, 255, 1);
+  animation: float 3s ease-in-out infinite, wobble 2s ease-in-out infinite;
+}
+
+.bubble::before {
+  content: "";
+  position: absolute;
+  width: 160px;
+  height: 160px;
+  top: 10px;
+  left: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.8); /* Larger shiny reflection */
+  filter: blur(20px);
+  opacity: 0.8;
+}
+
+.bubble::after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: 40px;
+  right: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.8); /* Smaller sharper reflection */
+  filter: blur(6px);
+  opacity: 0.9;
+}
+
+.bubble:hover {
+  transform: scale(1.15); /* Slight zoom on hover */
+  box-shadow: 0 0 150px rgba(0, 0, 0, 0.7),
+              inset 0 0 100px rgb(0, 0, 0), 
+              inset 0 0 50px rgb(255, 255, 255); /* Stronger effect on hover */
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px); /* Float up slightly */
+  }
+}
+
+@keyframes wobble {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(4deg); /* Slight wobble effect */
+  }
+}

@@ -1,0 +1,246 @@
+/* Container for Register Page */
+.register-page .register-container {
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  background-color: #f4f7f9;
+}
+
+/* Left section (50%) */
+.register-page .left-section {
+  flex: 1;
+  padding: 40px;
+  background-color: #ddecfe;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(96, 91, 99, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.register-page .register-logo {
+  width: 30%;
+  margin-bottom: 10px;
+}
+
+/* Heading and content in the left section */
+.register-page .register-content h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #2c3e50;
+  font-weight: bold;
+}
+/* Divider styling */
+.register-page .divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 20px 0;
+  color: #999;
+  font-size: 14px;
+}
+
+.register-page .divider::before,
+.register-page .divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #ddd;
+  margin: 0 10px;
+}
+
+.register-page .register-content span {
+  color: #f39c12;
+}
+
+.register-page .register-desc {
+  font-size: 1.125rem;
+  color: #5d6d7e;
+  margin-bottom: 15px;
+}
+
+.register-page .register-points {
+  font-size: 1.125rem;
+  color: #5d6d7e;
+  padding-left: 1.5rem;
+  margin-bottom: 0;
+}
+
+.register-page .register-points li {
+  margin-bottom: 0.75rem;
+  color: #444;
+}
+
+.register-page .register-points li i {
+  color: #94a5bb;
+}
+
+/* Background image for the left section */
+.register-page .register-background-image {
+  position: absolute;
+  right: 0;
+  top: 60%;
+  width: 40%;
+  height: auto;
+  z-index: 1;
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+/* Right section (50%) */
+.register-page .right-section {
+  flex: 1;
+  padding: 50px;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+}
+
+/* Form container styling */
+.register-page .form-container {
+  width: 100%;
+  max-width: 450px;
+  padding: 40px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.register-page .form-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Form fields and buttons */
+.register-page .form-container .field input {
+  border: none;
+  border-bottom: 2px solid #ddd;
+  padding: 15px 10px;
+  font-size: 16px;
+  outline: none;
+  width: 100%;
+  margin-bottom: 25px;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.register-page .form-container .field input:focus {
+  border-bottom: 2px solid #333;
+  background-color: #fff;
+}
+
+/* Continue button */
+.register-page .submit-button {
+  width: 100%;
+  background-color: #333;
+  color: white;
+  font-size: 16px;
+  padding: 15px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.register-page .submit-button:hover {
+  background-color: #555;
+  transform: translateY(-3px);
+}
+
+/* Google login button */
+.google-login-btn {
+  width: 100%;
+  font-size: 16px;
+  padding: 15px;
+  margin-top: 15px;
+  color: black;
+  background-color: white;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.google-login-btn img {
+  margin-right: 10px;
+}
+
+.google-login-btn:hover {
+  background-color: #f1f1f1;
+  border-color: #bbb;
+}
+
+.google-login-btn:active {
+  background-color: #e0e0e0;
+}
+
+/* Already have an account link */
+.already-account a {
+  color: #2980b9;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.already-account a:hover {
+  text-decoration: underline;
+}
+
+/* Terms section */
+.terms label {
+  font-size: 14px;
+  color: #555;
+}
+
+.terms a {
+  color: #2980b9;
+  text-decoration: none;
+}
+
+.terms a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .register-page .right-section {
+    padding: 30px;
+  }
+
+  .form-container {
+    padding: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .register-page .right-section {
+    padding: 20px;
+  }
+
+  .register-page .form-container {
+    padding: 20px;
+    max-width: 100%;
+  }
+
+  .google-login-btn {
+    font-size: 14px;
+    padding: 12px;
+  }
+}
+
+
+
+
+
+
+
+
