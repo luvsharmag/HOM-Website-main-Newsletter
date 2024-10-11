@@ -16,6 +16,7 @@ const connectDB = () => {
     .connect(
       "mongodb+srv://marketing:MtH086urjhOrh7pc@cluster0.r7lan.mongodb.net/talk-to-us",
       {
+        dbName:"talk-to-us",
         useNewUrlParser: true,
         useUnifiedTopology: true,
       }
@@ -92,7 +93,7 @@ app.post("/subscribe", async (req, res) => {
     //   html: "<b>Welcome to HOM, Thank you for subscribing, We're honoured to have you on board.</b>",
     // });
     let user = await publicUser.findOne({
-      email: { $regex: new RegExp(`^${email}$`, "i") },
+      email,
     });
     if (user) {
       return next(new ErrorHandler("Email already exist", 409));
