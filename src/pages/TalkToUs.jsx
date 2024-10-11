@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { Link } from "react-router-dom";
+
 
 const TalkToUs = () => {
   const [formData, setFormData] = useState({
@@ -70,14 +70,29 @@ const TalkToUs = () => {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (validate()) {
-      // Handle form submission logic, e.g., send data to the server
-      console.log("Form Data Submitted:", formData);
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Prevent default form submission
+
+    try {
+      const response = await fetch('http://localhost:3000/talkExpertForm', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        console.log('Success:', data);
+      } else {
+        console.error('Error:', data);
+      }
+    } catch (error) {
+      console.error('Error:', error);
     }
   };
-
   return (
     <>
       <Navbar />

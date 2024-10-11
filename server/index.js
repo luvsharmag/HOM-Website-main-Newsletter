@@ -1,10 +1,11 @@
 /* eslint-disable no-undef */
 const express = require("express");
 const cors = require("cors");
-// const nodemailer = require("nodemailer");
+const nodemailer = require("nodemailer");
 const bodyParser = require("body-parser");
 const app = express();
 const mongoose = require("mongoose");
+const morgan = require("morgan");
 
 // const connectDB = require("./data/database");
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -16,7 +17,7 @@ const connectDB = () => {
     .connect(
       "mongodb+srv://marketing:MtH086urjhOrh7pc@cluster0.r7lan.mongodb.net/talk-to-us",
       {
-        dbName:"talk-to-us",
+        dbName: "talk-to-us",
         useNewUrlParser: true,
         useUnifiedTopology: true,
       }
@@ -25,7 +26,7 @@ const connectDB = () => {
     .catch((e) => console.log(e));
 };
 connectDB();
-
+app.use(morgan("dev"));
 app.use(bodyParser.json());
 // mongoose.connect("mongodb://localhost:27017/talk-to-us", {
 //   useNewUrlParser: true,
@@ -33,8 +34,14 @@ app.use(bodyParser.json());
 // });
 const notesSchema = new mongoose.Schema(
   {
-    title: String,
-    content: String,
+    fullName: String,
+    phoneNumber: String,
+    workEmail: String,
+    brandWebsite: String,
+    campaignBudget: String,
+    campaignStartDate: String,
+    howDidYouHear: String,
+    campaignObjective: String,
   },
   { collection: "responses" }
 );
@@ -49,7 +56,8 @@ app.get("/", (req, res) => {
   res.send("Backend Server Runnnig");
 });
 
-app.post("/", function (req, res) {
+app.post("/talkExpertForm", function (req, res) {
+  console.log(res.body);
   let newNote = new Note({
     fullName: req.body.fullName,
     phoneNumber: req.body.phoneNumber,
@@ -66,34 +74,34 @@ app.post("/", function (req, res) {
     .catch((err) => res.status(500).send(err));
 });
 
-// const transporter = nodemailer.createTransport({
-//   service: "gmail",
-//   auth: {
-//     user: "marketing@houseofmarktech.com", // Replace with your email
-//     pass: "qipw jimu taij lthn", // Replace with your email password
-//   },
-// });
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: "marketing@houseofmarktech.com", // Replace with your email
+    pass: "qipw jimu taij lthn", // Replace with your email password
+  },
+});
 const publicUserSchema = new mongoose.Schema({
   UserEmail: {
     type: String,
-    // unique: [true, "Email already Exist"],
+    unique: [true, "Email already Exist"],
     // required: [true, "Please enter email"],
   },
 });
-const publicUser = mongoose.model("publicUser", publicUserSchema);
-app.post("/subscribe", async (req, res) => {
+const publicUser = mongoose.model("newsletter-emailss", publicUserSchema);
+app.post("/subscribe", async (req, res, next) => {
   const { email } = req.body;
   console.log("user email", email);
   try {
-    // await transporter.sendMail({
-    //   from: '"House of Marktech" <marketing@houseofmarktech.com>',
-    //   to: email,
-    //   subject: "Subscription Confirmation ",
-    //   text: "Welcome to HOM, Thank you for subscribing, We're honoured to have you on board.",
-    //   html: "<b>Welcome to HOM, Thank you for subscribing, We're honoured to have you on board.</b>",
-    // });
+    await transporter.sendMail({
+      from: '"House of Marktech" <marketing@houseofmarktech.com>',
+      to: email,
+      subject: "Subscription Confirmation ",
+      text: "Welcome to HOM, Thank you for subscribing, We're honoured to have you on board.",
+      html: "<b>Welcome to HOM, Thank you for subscribing, We're honoured to have you on board.</b>",
+    });
     let user = await publicUser.findOne({
-      UserEmail:email,
+      UserEmail: email,
     });
     if (user) {
       return next(new ErrorHandler("Email already exist", 409));
